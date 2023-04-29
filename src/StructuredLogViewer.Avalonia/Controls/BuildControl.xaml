@@ -84,11 +84,8 @@
                                 <Border BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}">
                                     <ItemsPresenter Name="PART_ItemsPresenter"
-                                                    Items="{TemplateBinding Items}"
                                                     ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                    Margin="{TemplateBinding Padding}"
-                                                    VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                                                    Margin="{TemplateBinding Padding}" />
                                 </Border>
                             </ControlTemplate>
                         </ListBox.Template>

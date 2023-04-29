@@ -110,15 +110,9 @@ namespace StructuredLogViewer.Avalonia.Controls
 
             var current = e.Source;
 
-            while (current != null)
+            if (current is TabItem { DataContext: SourceFileTab sourceFileTab })
             {
-                if (current is TabItem { DataContext: SourceFileTab sourceFileTab })
-                {
-                    sourceFileTab.Close.Execute(null);
-                    break;
-                }
-
-                current = current.InteractiveParent;
+                sourceFileTab.Close.Execute(null);
             }
         }
     }
