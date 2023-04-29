@@ -9,6 +9,7 @@
       https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet7/nuget/v3/index.json;
       $(RestoreAdditionalProjectSources)
     </RestoreAdditionalProjectSources>
+    <PublishAot>true</PublishAot>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,10 +20,6 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Include="StructuredLogger.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <RdXmlFile Include="Avalonia.rd.xml" />
   </ItemGroup>
 
   <ItemGroup Condition="$(NETCoreSdkRuntimeIdentifier.StartsWith('osx'))">
@@ -36,6 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview6" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.0.0-preview6" />
     <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-preview6" Condition=" '$(Configuration)' == 'Debug' " />
     <PackageReference Include="Avalonia.AvaloniaEdit" Version="11.0.0-preview6" />
     <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" />
