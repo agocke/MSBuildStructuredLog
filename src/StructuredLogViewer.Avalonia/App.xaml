@@ -20,6 +20,7 @@
 
     <Application.Styles>
         <SimpleTheme />
+        <StyleInclude Source="avares://AvaloniaEdit/Themes/Simple/AvaloniaEdit.xaml" />
         <StyleInclude Source="/Styles.xaml" />
 
         <Style Selector="Rectangle.nodeIcon">
@@ -429,10 +430,6 @@
                                        Foreground="Black"
                                        Background="Yellow"
                                        Text="{Binding Text}" />
-                        </DataTemplate>
-                        <DataTemplate>
-                            <TextBlock Classes="nodeBeforeText"
-                                       Text="{Binding .}" />
                         </DataTemplate>
                     </ItemsControl.DataTemplates>
                     <ItemsControl.ItemsPanel>

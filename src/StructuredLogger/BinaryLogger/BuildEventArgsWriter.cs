@@ -836,7 +836,7 @@ Build
                 var method = Reflector.GetEnumerateItemsPerTypeMethod(type);
                 if (method != null)
                 {
-                    method.Invoke(items, new object[] { WriteItems });
+                    method.Invoke(items, new object[] { (Action<string, string>)WriteItems });
                 }
 
                 // signal the end
@@ -863,7 +863,7 @@ Build
                     WriteTaskItemList(itemList);
                     CheckForFilesToEmbed(itemType, itemList);
                 });
-            
+
                 // signal the end
                 Write(0);
             }
@@ -876,7 +876,7 @@ Build
                     WriteTaskItemList(itemList);
                     CheckForFilesToEmbed(itemType, itemList);
                 });
-            
+
                 // signal the end
                 Write(0);
             }
