@@ -108,7 +108,7 @@ namespace StructuredLogViewer.Avalonia.Controls
             if (e.Handled)
                 return;
 
-            var current = e.Source;
+            var current = (Interactive)e.Source;
 
             while (current != null)
             {
@@ -118,7 +118,7 @@ namespace StructuredLogViewer.Avalonia.Controls
                     break;
                 }
 
-                current = current.InteractiveParent;
+                current = current.GetInteractiveParent();
             }
         }
     }

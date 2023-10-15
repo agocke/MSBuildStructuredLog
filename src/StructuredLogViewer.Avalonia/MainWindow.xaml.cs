@@ -85,7 +85,7 @@ namespace StructuredLogViewer.Avalonia
 
         private async Task<bool> TryOpenFromClipboard()
         {
-            var text = await Application.Current.Clipboard.GetTextAsync();
+            var text = await Clipboard.GetTextAsync();
             if (string.IsNullOrEmpty(text) || text.Length > 260)
             {
                 return false;
@@ -484,7 +484,7 @@ namespace StructuredLogViewer.Avalonia
                 }
 
                 logFilePath = result;
-                System.Threading.Tasks.Task.Run(() =>
+                _ = System.Threading.Tasks.Task.Run(() =>
                 {
                     Serialization.Write(currentBuild.Build, logFilePath);
                     Dispatcher.UIThread.InvokeAsync(() =>
@@ -523,7 +523,7 @@ namespace StructuredLogViewer.Avalonia
                 var content = mainContent.Content as BuildProgress;
                 if (content != null)
                 {
-                    await Application.Current.Clipboard.SetTextAsync(content.MSBuildCommandLine);
+                    await Clipboard.SetTextAsync(content.MSBuildCommandLine);
                 }
             }
             else if (e.Key == Key.S && e.KeyModifiers.HasFlag(KeyModifiers.Control))

@@ -6,10 +6,10 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives.PopupPositioning;
 using Avalonia.Input;
 using Avalonia.Media;
+using Avalonia.Media.TextFormatting;
 using AvaloniaEdit;
 using AvaloniaEdit.Document;
 using AvaloniaEdit.Rendering;
-using AvaloniaEdit.Text;
 using Microsoft.Build.Logging.StructuredLogger;
 using FontStyle = Avalonia.Media.FontStyle;
 
@@ -130,37 +130,37 @@ namespace StructuredLogViewer.Avalonia.Controls
 
             public override TextRun CreateTextRun(int startVisualColumn, ITextRunConstructionContext context)
             {
-                TextRunProperties.Underline = true;
+                //TextRunProperties.Underline = true;
                 return base.CreateTextRun(startVisualColumn, context);
             }
 
-            protected override void OnQueryCursor(PointerEventArgs e)
-            {
-                base.OnQueryCursor(e);
+            //protected override void OnQueryCursor(PointerEventArgs e)
+            //{
+            //    base.OnQueryCursor(e);
 
-                // TODO Do this properly when the following issue is fixed: https://github.com/AvaloniaUI/AvaloniaEdit/issues/133
+            //    // TODO Do this properly when the following issue is fixed: https://github.com/AvaloniaUI/AvaloniaEdit/issues/133
 
-                if (!e.Handled && (e.KeyModifiers & KeyModifiers.Control) != 0 && ReferenceEquals(e.Source, generator.TextView))
-                {
-                    generator.TextView.Cursor = handCursor;
-                    generator.WasCursorSetByLink = true;
-                    e.Handled = true;
-                }
-            }
+            //    if (!e.Handled && (e.KeyModifiers & KeyModifiers.Control) != 0 && ReferenceEquals(e.Source, generator.TextView))
+            //    {
+            //        generator.TextView.Cursor = handCursor;
+            //        generator.WasCursorSetByLink = true;
+            //        e.Handled = true;
+            //    }
+            //}
 
-            protected override void OnPointerPressed(PointerPressedEventArgs e)
-            {
-                if (e.Handled)
-                    return;
+            //protected override void OnPointerPressed(PointerPressedEventArgs e)
+            //{
+            //    if (e.Handled)
+            //        return;
 
-                if ((e.KeyModifiers & KeyModifiers.Control) != 0 && e.GetCurrentPoint(null).Properties.IsLeftButtonPressed)
-                {
-                    OpenLink();
-                    e.Handled = true;
-                }
+            //    if ((e.KeyModifiers & KeyModifiers.Control) != 0 && e.GetCurrentPoint(null).Properties.IsLeftButtonPressed)
+            //    {
+            //        OpenLink();
+            //        e.Handled = true;
+            //    }
 
-                base.OnPointerPressed(e);
-            }
+            //    base.OnPointerPressed(e);
+            //}
 
             protected override VisualLineText CreateInstance(int length)
             {

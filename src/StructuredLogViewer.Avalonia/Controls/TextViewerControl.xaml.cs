@@ -145,7 +145,7 @@ namespace StructuredLogViewer.Avalonia.Controls
                 var highlighting = HighlightingManager.Instance.GetDefinition("XML");
                 highlighting.GetNamedColor("XmlTag").Foreground = new SimpleHighlightingBrush(Color.FromRgb(163, 21, 21));
                 textEditor.SyntaxHighlighting = highlighting;
-                
+
                 var foldingManager = FoldingManager.Install(textEditor.TextArea);
                 var foldingStrategy = new XmlFoldingStrategy();
                 foldingStrategy.UpdateFoldings(foldingManager, textEditor.Document);
@@ -189,7 +189,7 @@ namespace StructuredLogViewer.Avalonia.Controls
             {
                 return;
             }
-            
+
             var filePath = FilePath;
             var extension = Path.GetExtension(filePath);
 
@@ -228,7 +228,7 @@ namespace StructuredLogViewer.Avalonia.Controls
 
         private void copyFullPath_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Clipboard.SetTextAsync(FilePath);
+            TopLevel.GetTopLevel(this).Clipboard.SetTextAsync(FilePath);
         }
 
         private void preprocess_Click(object sender, RoutedEventArgs e)

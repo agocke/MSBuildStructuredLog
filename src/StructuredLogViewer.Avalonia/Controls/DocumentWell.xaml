@@ -7,7 +7,7 @@
         <local:DocumentWell />
     </Design.DataContext>
     <Grid>
-        <TabControl Name="tabControl" Items="{Binding #documentWell.Tabs}">
+        <TabControl Name="tabControl" ItemsSource="{Binding #documentWell.Tabs}">
             <TabControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type local:SourceFileTab}">
                     <StackPanel Orientation="Horizontal">
@@ -32,7 +32,7 @@
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
-        
+
         <Button Name="closeButton"
                 Classes="close"
                 HorizontalAlignment="Right"

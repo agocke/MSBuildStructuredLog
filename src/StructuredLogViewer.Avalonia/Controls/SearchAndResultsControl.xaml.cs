@@ -52,12 +52,12 @@ namespace StructuredLogViewer.Avalonia.Controls
             get => typingConcurrentOperation.ExecuteSearch;
             set => typingConcurrentOperation.ExecuteSearch = value;
         }
-        
+
         public void TriggerSearch(string text, int maxResults)
         {
             typingConcurrentOperation.TriggerSearch(text, maxResults);
         }
-        
+
         private void searchTextBox_TextChanged(object sender, AvaloniaPropertyChangedEventArgs e)
         {
             if (e.Property != TextBox.TextProperty) return;
@@ -88,7 +88,7 @@ namespace StructuredLogViewer.Avalonia.Controls
                 watermark.IsVisible = false;
             }
 
-            resultsList.Items = ResultsTreeBuilder(results, moreAvailable);
+            resultsList.ItemsSource = ResultsTreeBuilder(results, moreAvailable);
         }
 
         public object WatermarkContent
