@@ -77,6 +77,7 @@
                               Margin="{TemplateBinding Level, Mode=OneWay, Converter={StaticResource LeftMarginConverter}}" >
                             <ToggleButton Name="expander"
                                           Focusable="False"
+                                          x:DataType="TreeViewItem"
                                           IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"/>
                             <ContentPresenter Name="PART_HeaderPresenter"
                                               Focusable="False"
@@ -89,13 +90,15 @@
                                      HorizontalAlignment="Left" VerticalAlignment="Top"
                                      Fill="{StaticResource ContainsSearchResultBrush}"
                                      Stroke="{StaticResource ContainsSearchResultStroke}"
-                                     IsVisible="{Binding ContainsSearchResult}"/>
+                                     x:DataType="structuredLogger:TreeNode"
+                                     IsVisible="{CompiledBinding ContainsSearchResult}"/>
                             <Ellipse Grid.Column="1"
                                      Width="6" Height="6" Margin="1,1,0,0" StrokeThickness="1"
                                      HorizontalAlignment="Left" VerticalAlignment="Top"
                                      Fill="{StaticResource SearchResultBrush}"
                                      Stroke="{StaticResource SearchResultStroke}"
-                                     IsVisible="{Binding IsSearchResult}"/>
+                                     x:DataType="structuredLogger:TreeNode"
+                                     IsVisible="{CompiledBinding IsSearchResult}"/>
                         </Grid>
                     </Border>
                     <ItemsPresenter Name="PART_ItemsPresenter"

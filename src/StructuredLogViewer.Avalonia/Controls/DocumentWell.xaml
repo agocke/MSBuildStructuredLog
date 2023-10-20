@@ -2,7 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:StructuredLogViewer.Avalonia.Controls;assembly=StructuredLogViewer.Avalonia"
              x:Class="StructuredLogViewer.Avalonia.Controls.DocumentWell"
-             Name="documentWell">
+             Name="documentWell"
+             x:CompileBindings="True">
     <Design.DataContext>
         <local:DocumentWell />
     </Design.DataContext>

@@ -5,10 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <RuntimeIdentifiers>win-x64;linux-x64;osx-x64;osx-arm64</RuntimeIdentifiers>
     <ApplicationIcon>StructuredLogger.ico</ApplicationIcon>
-    <RestoreAdditionalProjectSources Condition="$(PublishNativeAot) == True">
-      https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet7/nuget/v3/index.json;
-      $(RestoreAdditionalProjectSources)
-    </RestoreAdditionalProjectSources>
+    <PublishAot>true</PublishAot>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,10 +16,6 @@
       <SubType>Designer</SubType>
     </AvaloniaResource>
     <AvaloniaResource Include="StructuredLogger.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <RdXmlFile Include="Avalonia.rd.xml" />
   </ItemGroup>
 
   <ItemGroup Condition="$(NETCoreSdkRuntimeIdentifier.StartsWith('osx'))">

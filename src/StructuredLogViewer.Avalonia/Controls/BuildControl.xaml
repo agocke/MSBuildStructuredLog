@@ -1,12 +1,20 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:StructuredLogViewer.Avalonia.Controls;assembly=StructuredLogViewer.Avalonia"
+             xmlns:logger="clr-namespace:Microsoft.Build.Logging.StructuredLogger;assembly=StructuredLogger"
              x:Class="StructuredLogViewer.Avalonia.Controls.BuildControl">
+
+    <UserControl.Styles>
+        <Style Selector="TreeViewItem" x:DataType="logger:TreeNode">
+            <Setter Property="IsExpanded" Value="{CompiledBinding IsExpanded}" />
+            <Setter Property="IsSelected" Value="{CompiledBinding IsSelected}" />
+            <Setter Property="IsVisible" Value="{CompiledBinding IsVisible}" />
+        </Style>
+    </UserControl.Styles>
 
     <local:SplitterPanel Orientation="Vertical"
                          FirstChildRelativeSize="*"
                          SecondChildRelativeSize="50">
-
         <local:SplitterPanel.FirstChild>
             <local:SplitterPanel FirstChildRelativeSize="1*"
                                  SecondChildRelativeSize="3*">
@@ -45,7 +53,7 @@
                             <TabControl Name="centralTabControl"
                                         TabStripPlacement="Bottom"
                                         SelectedIndex="0"
-                                        MinWidth="10">
+                                        MinWidth="10" >
                                 <TabItem Name="mainTreeTab"
                                          Header="Log">
                                     <TreeView Name="treeView"
@@ -53,7 +61,9 @@
                                               BorderThickness="0"
                                               Classes="searchable"
                                               AutoScrollToSelectedItem="True"
-                                              ItemsSource="{Binding Children}"/>
+                                              x:DataType="logger:TreeNode"
+                                              ItemsSource="{CompiledBinding Children}" />
+
                                 </TabItem>
 
                                 <!--<TabItem Name="timelineTab"
